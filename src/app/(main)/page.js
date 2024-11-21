@@ -14,7 +14,10 @@ export default async function Home() {
         {
           Object.keys(mh).map((name) => (
             <li key={name}>
+              <img src={mh[name].img} alt={name} />
               <a href={mh[name]}>{name}</a>
+              <p>{mh[name].description}</p>
+              <p>{mh[name].chapters.length}</p>
             </li>
           ))
         }
