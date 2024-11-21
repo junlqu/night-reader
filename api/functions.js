@@ -1,11 +1,11 @@
 // Scroll to bottom of page
-export async function autoScroll(page){
-  await page.evaluate(async () => {
+export async function autoScroll(page, dist) {
+  await page.evaluate(async (dist) => {
     await new Promise((resolve) => {
-      var totalHeight = 0;
-      var distance = 1000;
-      var timer = setInterval(() => {
-        var scrollHeight = document.body.scrollHeight;
+      let totalHeight = 0;
+      let distance = dist;
+      let timer = setInterval(() => {
+        let scrollHeight = document.body.scrollHeight;
         window.scrollBy(0, distance);
         totalHeight += distance;
 
@@ -15,5 +15,5 @@ export async function autoScroll(page){
         }
       }, 100);
     });
-  });
+  }, dist);
 }
